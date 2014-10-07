@@ -1,0 +1,13 @@
+#!/usr/bin/expect
+
+spawn "/home/chris/scripts/bff/assets/bf1942_lnxded-1.6-rc2.run" --keep
+
+expect {
+       timeout { send_user "\ntimeout in extraction\n"; exit 1 }
+       eof { send_user "\nunexpected eof in extraction\n"; exit 1 }
+       "*ress return"
+}
+       
+send "^c"
+
+send_user "\nfinished\n"
