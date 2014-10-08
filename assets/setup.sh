@@ -37,7 +37,7 @@ chmod +x /srv/assets/bf1942_lnxded-1.6-rc2.run
 ./extract
 
 # verify files extracted as they should
-if [[ ! -e /srv/bf1942 ]]; then
+if [[ $? -ne 0 ]] || [[ ! -e /srv/bf1942 ]]; then
     echo '1.6 server files did not extract correctly'
     exit 1
 fi
