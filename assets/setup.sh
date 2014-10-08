@@ -27,15 +27,26 @@ md5sum -c MD5SUMS
 
 if [[ $? -ne 0 ]]; then
     echo 'downloaded file integrity check failed'
+    exit 1
 else
     echo 'downloaded files are full of integrity'
 fi
 
 # extract 1.6 files
+chmod +x /srv/assets/bf1942_lnxded-1.6-rc2.run
 ./extract
+
+# verify files extracted as they should
+if [[ ! -e /srv/bf1942 ]]; then
+    echo '1.6 server files did not extract correctly'
+    exit 1
+fi
 
 # patch to 1.61
 tar -xvf ./bf1942-update-1.61.tar.gz -C /srv
 
 # create a link to the start script
 ln -s /srv/assets/start.sh /srv/start
+
+
+exit 0
