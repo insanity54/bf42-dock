@@ -2,11 +2,17 @@ FROM ubuntu:14.04
 
 MAINTAINER Chris Grimmett <chris@grimtech.net>
 
+# open ports for BF server
+EXPOSE 14567/udp # game traffic
+EXPOSE 3117/udp  # server browser client request (LAN)
+EXPOSE 22000/udp # server browser response (LAN)
+
 # add server assets to container
 ADD ./assets /srv/assets
 
-# satisfy some deps
-RUN apt-get update && apt-get -y install wget expect
+# satisfy setup script and bf1942 dependencies
+RUN apt-get update && \
+    apt-get -y install wget expect libc6-i386 lib32ncurses5 libc6-dev-i386
 
 # setup battlefield server package
 #   * downloads needed bf server files
@@ -14,8 +20,7 @@ RUN apt-get update && apt-get -y install wget expect
 #   * patches to 1.61
 RUN bash -x /srv/assets/setup.sh
 
-# open ports for BF server
-EXPOSE 14567
 
-# run battlefield server
-# RUN bash -x /srv/assets/bf1942/start.sh #dont do this here
+# set default command for running this container (run bf server)
+CMD /srv/start
+

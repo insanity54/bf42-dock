@@ -1,6 +1,6 @@
 #!/usr/bin/expect
 
-spawn "/home/chris/scripts/bff/assets/bf1942_lnxded-1.6-rc2.run" --keep
+spawn "/srv/assets/bf1942_lnxded-1.6-rc2.run" --keep --target ../bf1942
 
 expect {
        timeout { send_user "\ntimeout in extraction\n"; exit 1 }

@@ -35,5 +35,7 @@ fi
 ./extract
 
 # patch to 1.61
-tar -xvf ./bf1942-update-1.61.tar.gz
+tar -xvf ./bf1942-update-1.61.tar.gz -C /srv
 
+# create a link to the start script
+ln -s /srv/assets/start.sh /srv/start
