@@ -1,9 +1,9 @@
 #!/usr/bin/expect
 
+set timeout -1
 spawn "/srv/assets/bf1942_lnxded-1.6-rc2.run" --keep --target ../bf1942
 
 expect {
-       timeout { send_user "\ntimeout in extraction\n"; exit 1 }
        eof { send_user "\nunexpected eof in extraction\n"; exit 1 }
        "*ress return"
 }
