@@ -2,14 +2,6 @@ FROM ubuntu:14.04
 
 MAINTAINER Chris Grimmett <chris@grimtech.net>
 
-# open ports for BF server
-# game traffic
-EXPOSE 14567/udp
-# server browser client request (LAN)
-EXPOSE 3117/udp
-# server browser response (LAN)
-EXPOSE 22000/udp
-
 # add server assets to container
 ADD ./assets /srv/assets
 
