@@ -14,7 +14,7 @@ Building
 ---
 
     $ docker build -t bf42 .
-    $ docker run -d bf42
+    $ docker run -d -p 14567:14567/udp bf42
 
 
 Notes
