@@ -17,5 +17,5 @@ RUN bash -x /srv/assets/setup.sh
 
 
 # set default command for running this container (run bf server)
-CMD /srv/start
+CMD /srv/start.sh
 

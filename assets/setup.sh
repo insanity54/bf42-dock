@@ -46,7 +46,7 @@ fi
 tar -xvf ./bf1942-update-1.61.tar.gz -C /srv
 
 # create a link to the start script
-ln -s /srv/assets/start.sh /srv/start
+cp /srv/assets/start.sh /srv/start.sh
 
 
 exit 0
