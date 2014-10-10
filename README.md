@@ -1,4 +1,4 @@
-bff
+bf42-dock
 ===
 
 Dockerized battlefield 1942
