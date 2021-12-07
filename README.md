@@ -4,7 +4,7 @@
 bf42-dock
 ===
 
-Dockerized battlefield 1942
+Dockerized Battlefield 1942 Server
 
 
 Prerequisites
