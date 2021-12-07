@@ -4,7 +4,7 @@
 bf42-dock
 ===
 
-Dockerized Battlefield 1942 Server
+Dockerized Battlefield 1942 Server Version 1.61
 
 
 Prerequisites
