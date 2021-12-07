@@ -1,20 +1,21 @@
 
+# bf42-dock
+
+
 ![Battlefield 1942](https://raw.githubusercontent.com/insanity54/bf42-dock/master/bf1942_logo.jpg)
 
-bf42-dock
-===
 
-Dockerized Battlefield 1942 Server Version 1.61
+Dockerized Battlefield 1942 Server Version 1.612 (Team SiMPLE Patched)
 
 
-Prerequisites
----
+## Prerequisites
+
 
 * [docker](https://docker.com/)
 
 
-Building
----
+## Building
+
 
     $ docker build -t bf42 .
     $ docker run -d -p 14567:14567/udp bf42
@@ -30,8 +31,8 @@ Internet game:
     $ ?? not tested yet
 
 
-Notes
----
+## Notes
+
 
 Battlefield 1942 needs these ports:
 
