@@ -5,7 +5,7 @@
 ![Battlefield 1942](https://raw.githubusercontent.com/insanity54/bf42-dock/master/bf1942_logo.jpg)
 
 
-Dockerized Battlefield 1942 Server Version 1.612 (Team SiMPLE Patched)
+Dockerized Battlefield 1942 Dedicated Server Version 1.612 ([Team SiMPLE](https://team-simple.org/) Patched)
 
 
 ## Prerequisites
