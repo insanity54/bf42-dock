@@ -1,5 +1,5 @@
 
-![Battlefield 1942](https://raw.githubusercontent.com/InAnimaTe/docker-battlefield1942/master/bf1942_logo.jpg)
+![Battlefield 1942](https://raw.githubusercontent.com/insanity54/bf42-dock/master/bf1942_logo.jpg)
 
 bf42-dock
 ===
