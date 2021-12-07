@@ -1,40 +1,40 @@
 #!/bin/bash
 
 serverFile='/tmp/bf1942_lnxded-1.6-rc2.run'
-patchFile='/tmp/bf1942-update-1.61.tar.gz'
+serverPatchFile='/tmp/bf1942_lnxded-1.612-patched.tar.gz'
 
-
-# verify needed files are downloaded
-# download the server if it's not already downloaded
+# download the server
 if [[ ! -e $serverFile ]]; then
-    echo 'downloading 1.6 server'
-    wget 'https://dweb.link/ipfs/bafybeibdg5vpsldsfuvemdk4wfi6es46noxnbg6pjxjsmb27tr6g74wmfq?filename=bf1942_lnxded-1.6-rc2.run' -O $serverFile
+    echo 'Downloading BF1942 server'
+    wget -q 'https://dweb.link/ipfs/bafybeibdg5vpsldsfuvemdk4wfi6es46noxnbg6pjxjsmb27tr6g74wmfq?filename=bf1942_lnxded-1.6-rc2.run' -O $serverFile
 fi
 
-# download patch if not already downloaded
-if [[ ! -e $patchFile ]]; then
-    echo 'downloading 1.61b patch'
-    wget 'https://dweb.link/ipfs/bafybeie7463ofgnn2dhcxwqd7zvkyrv24mn4suose55aahlm74oq7z3nw4?filename=bf1942-update-1.61.tar.gz' -O $patchFile
+# download 1.612 patch
+if [[ ! -e $serverPatchFile ]]; then
+    echo 'Downloading Team SIMPLE BF1942 Server 1.612 patched'
+    wget -q 'https://dweb.link/ipfs/bafybeif2gncdf2ewmqahd6jhn5hld2v65ck3pyzff4yqfzdtom4vjay4tu?filename=bf1942_lnxded-1.612-patched.tar.gz' -O $serverPatchFile
 fi
 
 # copy downloaded files in tmp dir to current dir
-cp $serverFile /srv/assets
-cp $patchFile /srv/assets
+cp $serverFile /tmp/
+cp $serverPatchFile /tmp/
 
 # verify downloaded files are valid
-cd /srv/assets
+cd /tmp
+cp /srv/assets/MD5SUMS .
 md5sum -c MD5SUMS
 
 if [[ $? -ne 0 ]]; then
-    echo 'downloaded file integrity check failed'
+    echo 'file integrity check failed'
     exit 1
 else
-    echo 'downloaded files are full of integrity'
+    echo 'files are full of integrity'
 fi
 
-# extract 1.6 files
-chmod +x /srv/assets/bf1942_lnxded-1.6-rc2.run
+# extract server files
+cp /srv/assets/extract
 ./extract
+
 
 # verify files extracted as they should
 if [[ $? -ne 0 ]] || [[ ! -e /srv/bf1942 ]]; then
@@ -42,11 +42,11 @@ if [[ $? -ne 0 ]] || [[ ! -e /srv/bf1942 ]]; then
     exit 1
 fi
 
-# patch to 1.61
-tar -xvf ./bf1942-update-1.61.tar.gz -C /srv
+# extract patch files
+tar -xvzf bf1942_lnxded-1.612-patched.tar.gz -C /srv
 
-# create a link to the start script
-cp /srv/assets/start.sh /srv/start.sh
 
+# link
+ln -s /srv/bf1942/bf1942_lnxded.static /srv/bf1942/bf1942_lnxded
 
 exit 0
