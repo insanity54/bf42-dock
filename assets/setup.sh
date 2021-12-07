@@ -8,13 +8,13 @@ patchFile='/tmp/bf1942-update-1.61.tar.gz'
 # download the server if it's not already downloaded
 if [[ ! -e $serverFile ]]; then
     echo 'downloading 1.6 server'
-    wget 'https://www.dropbox.com/s/dnjan96ol1t5rms/bf1942_lnxded-1.6-rc2.run?dl=0' -O $serverFile
+    wget 'https://dweb.link/ipfs/bafybeibdg5vpsldsfuvemdk4wfi6es46noxnbg6pjxjsmb27tr6g74wmfq?filename=bf1942_lnxded-1.6-rc2.run' -O $serverFile
 fi
 
 # download patch if not already downloaded
 if [[ ! -e $patchFile ]]; then
     echo 'downloading 1.61b patch'
-    wget 'https://www.dropbox.com/s/9sfg0hd8xae42r5/bf1942-update-1.61.tar.gz?dl=0' -O $patchFile
+    wget 'https://dweb.link/ipfs/bafybeie7463ofgnn2dhcxwqd7zvkyrv24mn4suose55aahlm74oq7z3nw4?filename=bf1942-update-1.61.tar.gz' -O $patchFile
 fi
 
 # copy downloaded files in tmp dir to current dir
